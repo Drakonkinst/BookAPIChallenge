@@ -6,7 +6,6 @@ const Container = styled.div`
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   min-height: 100vh;
 `
 const Main = styled.main`
@@ -16,6 +15,10 @@ const Main = styled.main`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  h1 {
+    margin-bottom: 5px;
+  }
 `
 
 const Title = styled.h1`

@@ -6,30 +6,38 @@ import {
   Description,
   CodeTag,
 } from '../components/sharedstyles'
-import BookList from '../components/BookList'
 import useSWR from 'swr'
 import ButtonLink from "../components/ButtonLink"
+import AuthorList from "../components/AuthorList"
 
 // General data-fetching function
 const fetcher = url => fetch(url).then(r => r.json());
 
-export default function Home() {
-  const { data, error } = useSWR("/api/books", fetcher);
-  
+export default function Authors() {
+  const { data, error } = useSWR("/api/authors", fetcher);
+
   // Anytime we fetch data, we want 3 states
-  
+
   // If the API encounters an error
-  if(error) {
+  if (error) {
     return <Main>
       Error fetching data from API. Sorry :(
     </Main>
   }
-  
+
   // If the data is loading and has not been resolved yet
-  if(!data) {
+  if (!data) {
     return <Main>
       Loading...
     </Main>
+  }
+  
+  const authorToBookCount = {};
+  for(const authorName of data) {
+    if(!authorToBookCount.hasOwnProperty(authorName)) {
+      authorToBookCount[authorName] = 0;
+    }
+    authorToBookCount[authorName] += 1;
   }
   
   // If the data comes back as expected
@@ -41,9 +49,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <h1>Betterreads Book List</h1>
-        <p><ButtonLink href="/author">Search by Author instead</ButtonLink></p>
-        <BookList books={data}></BookList>
+        <h1>Betterreads Author List</h1>
+        <ButtonLink href="/">Search by Title instead</ButtonLink>
+        <AuthorList authorToBookCount={authorToBookCount}></AuthorList>
       </Main>
     </Container>
   )
