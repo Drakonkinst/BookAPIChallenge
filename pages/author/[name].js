@@ -2,14 +2,10 @@ import Head from 'next/head'
 import {
     Container,
     Main,
-    Title,
-    Description,
-    CodeTag,
 } from '../../components/sharedstyles'
 import styled from 'styled-components'
 import useSWR from 'swr'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import BookList from "../../components/BookList"
 import ButtonLink from '../../components/ButtonLink'
 
@@ -67,50 +63,4 @@ const Wrapper = styled.div`
     border: 1px solid black;
     border-radius: 5px;
     padding: 20px 50px;
-`;
-
-const BookHeader = styled.header`
-    text-align: center;
-    
-    h1 {
-        margin-bottom: 5px;
-    }
-    
-    p.author {
-        margin-top: 5px;
-        margin-bottom: 20px;
-        font-weight: bold;
-        font-size: 1.1em;
-    }
-`;
-
-const BookDetails = styled.main`
-    .label {
-        font-weight: bold;
-    }
-`;
-
-const BookLinks = styled.ul`
-    box-sizing: border-box;
-    text-align: center;
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    gap: 5px;
-    flex-direction: column;
-    
-    
-    a {
-        display: block;
-        color: white;
-        background-color: #45b3e0;
-        border: 1px solid #87ceeb;
-        border-radius: 5px;
-        padding: 10px;
-        transition: background-color 0.1s ease;
-    }
-
-    a:hover {
-        background-color: #87ceeb;
-    }
 `;

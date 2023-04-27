@@ -2,9 +2,6 @@ import Head from 'next/head'
 import {
     Container,
     Main,
-    Title,
-    Description,
-    CodeTag,
 } from '../components/sharedstyles'
 import styled from 'styled-components'
 import useSWR from 'swr'

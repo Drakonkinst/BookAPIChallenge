@@ -2,9 +2,6 @@ import Head from 'next/head'
 import {
   Container,
   Main,
-  Title,
-  Description,
-  CodeTag,
 } from '../components/sharedstyles'
 import BookList from '../components/BookList'
 import useSWR from 'swr'
